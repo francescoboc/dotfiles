@@ -5,3 +5,4 @@ Repo to store configuration files (AKA *dotfiles*) of:
 - Vim (`.vimrc`)
 - Tmux (`.tmux.conf`)
 - Ssh (`.ssh/config`)
+- Anaconda (`.condarc`)
