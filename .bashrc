@@ -133,14 +133,12 @@ fi
 # set the display variable so that it connects with the x11 server in win
 export DISPLAY=localhost:0.0
 
-# open a new instance of chrome so it can be correctly sent via ssh X forwarding
-alias chrome-ssh="google-chrome --user-data-dir=/tmp"
-
-# shorter aliases for python and vim
-alias vi='vim'      
-alias py='python' 
-alias run='python' 
+# shorter aliases for python, vim and tmux
+alias vi='vim'
+alias py='python'
+alias run='python'
 alias ipy='ipython --no-autoindent'
+alias ta='tmux a'
 
 # set the remove and move commands to be interactive (prompt to remove or overwrite)
 # it can be overridden by using rm -f and mv -f
@@ -158,6 +156,9 @@ alias exp="xdg-open . 2>/dev/null"
 
 # reload bashrc
 alias reload="source ~/.bashrc && echo '.bashrc reloaded'"
+
+# # open a new instance of chrome so it can be correctly sent via ssh X forwarding
+# alias chrome-ssh="google-chrome --user-data-dir=/tmp"
 
 # # connect via ssh to ilm machine and cd to same directory
 # function ilm() {
