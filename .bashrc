@@ -12,6 +12,9 @@
 #     export TERM=xterm-256color
 # fi
 
+# little welcome message when you startup the terminal
+fortune | cowsay
+
 # disable start/stop signals to be sent with C-s and C-q to the terminal
 # so we can remap them to other things
 stty -ixon -ixoff
