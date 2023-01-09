@@ -313,6 +313,7 @@ let g:CoolTotalMatches = 1
   
 " Change the color of the highlighting of TODOs
 :hi todo ctermfg=red
+
 "------------------------------------------------------------
 " Mappings 
 "
@@ -480,6 +481,9 @@ nnoremap <silent> <C-w>z :ZoomToggle<CR>
 
 " Show marks sidebar
 nnoremap <silent> zm :SignatureToggle<CR>
+
+" Map TAB to show list of matches for word autocompletion, when in insert mode
+inoremap <TAB> <C-n>
 
 " " Function to change keymappings between US and italian
 " let keyboard_flag=0
