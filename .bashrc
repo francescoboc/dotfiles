@@ -13,7 +13,7 @@
 # fi
 
 # little welcome message when you startup the terminal
-fortune | cowsay
+fortune | cowsay && echo ''
 
 # disable start/stop signals to be sent with C-s and C-q to the terminal
 # so we can remap them to other things
@@ -34,6 +34,11 @@ HISTCONTROL=ignoreboth
 
 # trim the length of the pwd
 export PROMPT_DIRTRIM=3
+
+# to fix xdg warnings when running GUI applications with Qt5 backend
+export XDG_RUNTIME_DIR='/tmp/runtime-fboccardo'
+export RUNLEVEL=3
+export LIBGL_ALWAYS_INDIRECT=1 
 
 # append to the history file, don't overwrite it
 shopt -s histappend
