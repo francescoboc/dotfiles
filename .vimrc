@@ -257,15 +257,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Splits open at the bottom and right
 set splitbelow splitright
 
-" Folds are defined by syntax, but don't fold nested functions
-set foldmethod=syntax
-set foldnestmax=1
-
-" " Save folds and cursor pos when leaving buffer, reload them when re-entering
-" set viewoptions=folds,cursor
-" autocmd BufWinLeave *.* mkview
-" autocmd BufEnter *.* silent loadview
-" " autocmd BufWinEnter *.* silent loadview | silent call lightline#update()
+" Save folds and cursor pos when leaving buffer, reload them when re-entering
+set viewoptions=folds,cursor
+autocmd BufWinLeave *.* mkview
+autocmd BufEnter *.* silent loadview
+" autocmd BufWinEnter *.* silent loadview | silent call lightline#update()
 
 set viewoptions-=options
 augroup vimrc
@@ -291,6 +287,11 @@ augroup END
 
 " Automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
+
+" Folds are defined by indentation
+set foldmethod=indent
+set nofoldenable
+set foldnestmax=2
 
 "------------------------------------------------------------
 " Indentation options 
@@ -414,35 +415,36 @@ let NERDTreeMapOpenSplit='s'
 nnoremap <silent> ù :UndotreeToggle<cr>
 
 " Open an ipython runner panel in tmux
-nnoremap zo :VtrOpenRunner {'orientation': 'h', 'percentage': 25, 'cmd': 'ipy'}<cr>
+nnoremap qo :VtrOpenRunner {'orientation': 'h', 'percentage': 25, 'cmd': 'ipy'}<cr>
 
 " Kill the existing runner panel
-nnoremap zk :VtrKillRunner<cr>
+nnoremap qk :VtrKillRunner<cr>
 
 " Attach runner to existing panel
-nnoremap za :VtrAttachToPane<cr>
+nnoremap qa :VtrAttachToPane<cr>
 
 " Clear runner
-nnoremap zc :VtrClearRunner<cr>
+nnoremap qc :VtrClearRunner<cr>
 
 " Run current python script
-nnoremap zr :VtrSendFile<cr>
+nnoremap qr :VtrSendFile<cr>
 let g:vtr_filetype_runner_overrides = {
     \ 'python': 'run {file}',
     \ }
 
 " Send the current line or the current visual selection from the Vim buffer to the runner pane for execution
-nnoremap zs :VtrSendLinesToRunner<cr>
-vnoremap zs :VtrSendLinesToRunner<cr>
+nnoremap qs :VtrSendLinesToRunner<cr>
+vnoremap qs :VtrSendLinesToRunner<cr>
 
 " Paste from system clipboard
-nmap zp "+p
+nmap qp "+p
 
 " Yank to system clipboard
-nmap zy "+y
+nmap qy "+y
 
 " Toggle folds
 nnoremap zx za
+nnoremap za zx
 
 " Invert bol behaviour of 0 (easier to press) and ^
 nnoremap ^ 0
