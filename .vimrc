@@ -257,11 +257,11 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Splits open at the bottom and right
 set splitbelow splitright
 
-" Save folds and cursor pos when leaving buffer, reload them when re-entering
-set viewoptions=folds,cursor
-autocmd BufWinLeave *.* mkview
-autocmd BufEnter *.* silent loadview
-" autocmd BufWinEnter *.* silent loadview | silent call lightline#update()
+" " Save folds and cursor pos when leaving buffer, reload them when re-entering
+" set viewoptions=folds,cursor
+" autocmd BufWinLeave *.* mkview
+" autocmd BufEnter *.* silent loadview
+" " autocmd BufWinEnter *.* silent loadview | silent call lightline#update()
 
 set viewoptions-=options
 augroup vimrc
