@@ -419,34 +419,32 @@ nnoremap qo :VtrOpenRunner {'orientation': 'h', 'percentage': 25, 'cmd': 'ipy'}<
 
 " Kill the existing runner panel
 nnoremap qk :VtrKillRunner<cr>
-
 " Attach runner to existing panel
 nnoremap qa :VtrAttachToPane<cr>
-
 " Clear runner
 nnoremap qc :VtrClearRunner<cr>
-
 " Run current python script
 nnoremap qr :VtrSendFile<cr>
 let g:vtr_filetype_runner_overrides = {
     \ 'python': 'run {file}',
     \ }
-
 " Send the current line or the current visual selection from the Vim buffer to the runner pane for execution
 nnoremap qs :VtrSendLinesToRunner<cr>
 vnoremap qs :VtrSendLinesToRunner<cr>
 
 " Paste from system clipboard
 nmap qp "+p
-
 " Yank to system clipboard
 nmap qy "+y
 
-" Toggle folds
+" Toggle fold under cursos
 nnoremap zx za
-nnoremap za zx
+" Close all
+nnoremap zX zM
+" Unfold all
+nnoremap zU zR
 
-" Invert bol behaviour of 0 (easier to press) and ^
+" Invert behaviour of 0 (easier to press) and ^
 nnoremap ^ 0
 nnoremap 0 ^
 
@@ -482,7 +480,7 @@ command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <C-w>z :ZoomToggle<CR>
 
 " Show marks sidebar
-nnoremap <silent> zm :SignatureToggle<CR>
+nnoremap <silent> qm :SignatureToggle<CR>
 
 " Map TAB to show list of matches for word autocompletion, when in insert mode
 inoremap <TAB> <C-n>
