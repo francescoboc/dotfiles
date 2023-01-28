@@ -118,7 +118,7 @@ hi VertSplit ctermbg=none
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-" to better support the whitespace in vim-tmux-runner
+" To better support the whitespace in vim-tmux-runner
 let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
@@ -126,7 +126,7 @@ let g:VtrAppendNewline = 1
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
 
-" marks bar plugin disabled at startup
+" Marks bar plugin disabled at startup
 let g:SignatureEnabledAtStartup=0
 
 "------------------------------------------------------------
@@ -257,24 +257,6 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Splits open at the bottom and right
 set splitbelow splitright
 
-" " Save folds and cursor pos when leaving buffer, reload them when re-entering
-" set viewoptions=folds,cursor
-" autocmd BufWinLeave *.* mkview
-" autocmd BufEnter *.* silent loadview
-" " autocmd BufWinEnter *.* silent loadview | silent call lightline#update()
-
-set viewoptions-=options
-augroup vimrc
-    autocmd BufWritePost *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      mkview
-    \|  endif
-    autocmd BufRead *
-    \   if expand('%') != '' && &buftype !~ 'nofile'
-    \|      silent loadview
-    \|  endif
-augroup END
-
 " These below are not needed with the autoread plugin
 " Trigger checktime when changing buffers or coming back to vim.
 " au FocusGained,BufEnter * :checktime
@@ -290,8 +272,10 @@ autocmd VimResized * :wincmd =
 
 " Folds are defined by indentation
 set foldmethod=indent
+" Do not fold when opening a file
 set nofoldenable
-set foldnestmax=2
+" Only fold 1 level of indentation (i.e. fold classes, not methods)
+set foldnestmax=1
 
 "------------------------------------------------------------
 " Indentation options 
