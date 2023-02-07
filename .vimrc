@@ -363,9 +363,9 @@ inoremap <silent> <c-s>         <Esc>:update<CR>
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy, which is the default
 map Y y$
 
-" Map x to t to the black hole register, so it doesn't overwrite the register
-nnoremap x "_x
-xnoremap x "_x
+" " Map x to t to the black hole register, so it doesn't overwrite the register
+" nnoremap x "_x
+" xnoremap x "_x
 
 " Don't need the following 2 anymore with vim-cool plugin!
 " " Map Ctrl-L (redraw screen) to also turn off search highlighting until the
