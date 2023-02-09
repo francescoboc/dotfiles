@@ -469,6 +469,11 @@ nnoremap <silent> qm :SignatureToggle<CR>
 " Map TAB to show list of matches for word autocompletion, when in insert mode
 inoremap <TAB> <C-n>
 
+" Quick mappings for 'buffer next' and 'buffer before'
+nnoremap bn :bn<CR>
+nnoremap bb :bp<CR>
+cnoreabbrev <expr> bb 'bp'
+
 " " Function to change keymappings between US and italian
 " let keyboard_flag=0
 " function! SwitchKeyboard()
