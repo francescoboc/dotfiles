@@ -29,7 +29,6 @@ Plugin 'VundleVim/Vundle.vim'
  Plugin 'mbbill/undotree'
  Plugin 'christoomey/vim-tmux-runner'
  Plugin 'kshenoy/vim-signature'
- " Plugin 'mengelbrecht/lightline-bufferline'
  Plugin 'bling/vim-bufferline'
 
 " All of your Plugins must be added before the following line
@@ -296,6 +295,12 @@ set foldmethod=indent
 set nofoldenable
 " Only fold 1 level of indentation (i.e. fold classes, not methods)
 set foldnestmax=1
+
+" Save folds and cursor pos when leaving buffer, reload them when re-entering
+set viewoptions=folds,cursor
+autocmd BufWinLeave *.* mkview
+autocmd BufEnter *.* silent loadview
+" autocmd BufWinEnter *.* silent loadview | silent call lightline#update()
 
 "------------------------------------------------------------
 " Indentation options 
