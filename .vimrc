@@ -29,6 +29,8 @@ Plugin 'VundleVim/Vundle.vim'
  Plugin 'mbbill/undotree'
  Plugin 'christoomey/vim-tmux-runner'
  Plugin 'kshenoy/vim-signature'
+ " Plugin 'mengelbrecht/lightline-bufferline'
+ Plugin 'bling/vim-bufferline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -112,8 +114,26 @@ hi Search cterm=none ctermbg=24 ctermfg=white
 set fillchars=vert:│
 hi VertSplit ctermbg=none
 
-" Change clorscheme of lighline plugin
+" Change clorscheme of lightline plugin
 " let g:lightline = { 'colorscheme': 'jellybeans' }
+
+" let g:lightline = {
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+"       \ },
+"       \ 'tabline': {
+"       \   'left': [ ['buffers'] ],
+"       \   'right': [ ['close'] ]
+"       \ },
+"       \ 'component_expand': {
+"       \   'buffers': 'lightline#bufferline#buffers'
+"       \ },
+"       \ 'component_type': {
+"       \   'buffers': 'tabsel'
+"       \ }
+"       \ }
+" autocmd BufWritePost,TextChanged,TextChangedI * call lightline#update()
+" let g:lightline#bufferline#filename_modifier = ':t'
 
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
