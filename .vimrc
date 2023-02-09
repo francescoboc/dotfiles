@@ -277,11 +277,13 @@ set nofoldenable
 " Only fold 1 level of indentation (i.e. fold classes, not methods)
 set foldnestmax=1
 
-" Save folds and cursor pos when leaving buffer, reload them when re-entering
-set viewoptions=folds,cursor
-autocmd BufWinLeave *.* mkview
-autocmd BufEnter *.* silent loadview
-" autocmd BufWinEnter *.* silent loadview | silent call lightline#update()
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid, when inside an event handler
+" and for a commit message (it's likely a different one than last time).
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+  \ |   exe "normal! g`\""
+  \ | endif
 
 "------------------------------------------------------------
 " Indentation options 
