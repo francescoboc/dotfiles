@@ -15,20 +15,22 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" " The following are examples of different formats supported.
-" " Keep Plugin commands between vundle#begin/end.
- Plugin 'itchyny/lightline.vim'
- Plugin 'nanotech/jellybeans.vim'
- Plugin 'scrooloose/nerdtree'
- Plugin 'tpope/vim-commentary'
- Plugin 'romainl/vim-cool'
- Plugin 'christoomey/vim-tmux-navigator'
- Plugin 'djoshea/vim-autoread'
- Plugin 'unblevable/quick-scope'
- Plugin 'wincent/scalpel'
- Plugin 'mbbill/undotree'
- Plugin 'christoomey/vim-tmux-runner'
- Plugin 'kshenoy/vim-signature'
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+Plugin 'itchyny/lightline.vim'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-commentary'
+Plugin 'romainl/vim-cool'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'djoshea/vim-autoread'
+Plugin 'unblevable/quick-scope'
+Plugin 'wincent/scalpel'
+Plugin 'mbbill/undotree'
+Plugin 'christoomey/vim-tmux-runner'
+Plugin 'kshenoy/vim-signature'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'itchyny/vim-gitbranch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -48,13 +50,13 @@ call vundle#end()            " required
 " These options and commands enable some very useful features in Vim, that
 " no user should have to live without.
 
-" fixes entering in replace mode at startup
+" Fixes entering in replace mode at startup
 set t_u7=
 
-" for mouse compatibility
+" For mouse compatibility
 set ttymouse=sgr
 
-" if the terminal variable contains 'screen' (i.e. we are using tmux), then 
+" If the terminal variable contains 'screen' (i.e. we are using tmux), then 
 " override the ttymouse variable. this ensures correct mouse integration in tmux
 if &term =~ '^screen' && exists('$TMUX')
     " tmux knows the extended mouse mode
@@ -112,9 +114,6 @@ hi Search cterm=none ctermbg=24 ctermfg=white
 set fillchars=vert:│
 hi VertSplit ctermbg=none
 
-" Change clorscheme of lightline plugin
-" let g:lightline = { 'colorscheme': 'jellybeans' }
-
 " Trigger a highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
@@ -129,25 +128,36 @@ let g:tmux_navigator_disable_when_zoomed = 1
 " Marks bar plugin disabled at startup
 let g:SignatureEnabledAtStartup=0
 
+" Disable gitguutter at startup
+ let g:gitgutter_enabled = 0
+
+" Update gitgutter column every quarter second (and probably also swp files)
+set updatetime=250
+
+" Nicer colors for gitgutter column
+let g:gitgutter_override_sign_column_highlight = 1
+highlight SignColumn guibg=bg
+highlight SignColumn ctermbg=bg
+
 "------------------------------------------------------------
 " Must have options 
 "
 " These are highly recommended options.
 
-" Vim with default settings does not allow easy switching between multiple files
-" in the same editor window. Users can use multiple split windows or multiple
-" tab pages to edit multiple files, but it is still best to enable an option to
-" allow easier switching between files.
-"
-" One such option is the 'hidden' option, which allows you to re-use the same
-" window and switch from an unsaved buffer without saving it first. Also allows
-" you to keep an undo history for multiple files when re-using the same window
-" in this way. Note that using persistent undo also lets you undo in multiple
-" files even in the same window, but is less efficient and is actually designed
-" for keeping undo history after closing Vim entirely. Vim will complain if you
-" try to quit without saving, and 23 files will keep you safe if your computer
-" crashes.
-set hidden
+"" Vim with default settings does not allow easy switching between multiple files
+"" in the same editor window. Users can use multiple split windows or multiple
+"" tab pages to edit multiple files, but it is still best to enable an option to
+"" allow easier switching between files.
+""
+"" One such option is the 'hidden' option, which allows you to re-use the same
+"" window and switch from an unsaved buffer without saving it first. Also allows
+"" you to keep an undo history for multiple files when re-using the same window
+"" in this way. Note that using persistent undo also lets you undo in multiple
+"" files even in the same window, but is less efficient and is actually designed
+"" for keeping undo history after closing Vim entirely. Vim will complain if you
+"" try to quit without saving, and 23 files will keep you safe if your computer
+"" crashes.
+"set hidden
 
 " Note that not everyone likes working this way (with the hidden option).
 " Alternatives include using tabs or split windows instead of re-using the same
@@ -482,6 +492,26 @@ nnoremap bn :bn<CR>
 nnoremap bb :bp<CR>
 cnoreabbrev <expr> bb 'bp'
 
+" Toggle gitgutter with gt
+nnoremap <silent> gt :GitGutterBufferToggle<CR>
+
+" Add gitbranch in lightline
+" Default is:
+      " \     'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype']]
+let g:lightline = {
+      \   'active': {
+      \     'left': [['mode', 'paste'], ['readonly', 'filename', 'modified']],
+      \     'right': [['lineinfo'], ['percent'], ['gitbranch', 'filetype']]
+      \   },
+      \   'inactive': {
+      \     'left': [['filename']],
+      \     'right': [['lineinfo'], ['percent']]
+      \   },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name',
+      \ },
+      \ }
+
 " " Function to change keymappings between US and italian
 " let keyboard_flag=0
 " function! SwitchKeyboard()
@@ -490,7 +520,7 @@ cnoreabbrev <expr> bb 'bp'
 "         nnoremap <silent> ù :UndotreeToggle<cr>
 "         nmap ò gcc
 "         vmap ò gc
-"         nmap ç gcap
+
 "         nnoremap , ;
 "         nnoremap ; ,
 "         nnoremap g, g;
