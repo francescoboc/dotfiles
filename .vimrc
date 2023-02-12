@@ -31,6 +31,7 @@ Plugin 'christoomey/vim-tmux-runner'
 Plugin 'kshenoy/vim-signature'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/vim-gitbranch'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -157,7 +158,7 @@ highlight SignColumn ctermbg=bg
 "" for keeping undo history after closing Vim entirely. Vim will complain if you
 "" try to quit without saving, and 23 files will keep you safe if your computer
 "" crashes.
-"set hidden
+set hidden
 
 " Note that not everyone likes working this way (with the hidden option).
 " Alternatives include using tabs or split windows instead of re-using the same
@@ -322,14 +323,6 @@ let g:CoolTotalMatches = 1
 "
 " Useful mappings
 
-" Disabe leader button (map it to something stupid)
-let mapleader = 'ä'
-
-" " Hitting space makes j and k move faster
-" nmap <Space>j 10j<Space>
-" nmap <Space>k 10k<Space>
-" nmap <Space><Space> <Nop>
-
 " Map shift-movement to 10 x movement
 nnoremap <s-k> 10- 
 nnoremap <s-j> 10+
@@ -417,27 +410,26 @@ let NERDTreeMapOpenSplit='s'
 nnoremap <silent> ù :UndotreeToggle<cr>
 
 " Open an ipython runner panel in tmux
-nnoremap qo :VtrOpenRunner {'orientation': 'h', 'percentage': 25, 'cmd': 'ipy'}<cr>
-
+nnoremap <leader>o :VtrOpenRunner {'orientation': 'h', 'percentage': 25, 'cmd': 'ipy'}<cr>
 " Kill the existing runner panel
-nnoremap qk :VtrKillRunner<cr>
+nnoremap <leader>k :VtrKillRunner<cr>
 " Attach runner to existing panel
-nnoremap qa :VtrAttachToPane<cr>
+nnoremap <leader>a :VtrAttachToPane<cr>
 " Clear runner
-nnoremap qc :VtrClearRunner<cr>
+nnoremap <leader>c :VtrClearRunner<cr>
 " Run current python script
-nnoremap qr :VtrSendFile<cr>
+nnoremap <leader>r :VtrSendFile<cr>
 let g:vtr_filetype_runner_overrides = {
     \ 'python': 'run {file}',
     \ }
 " Send the current line or the current visual selection from the Vim buffer to the runner pane for execution
-nnoremap qs :VtrSendLinesToRunner<cr>
-vnoremap qs :VtrSendLinesToRunner<cr>
+nnoremap <leader>s :VtrSendLinesToRunner<cr>
+vnoremap <leader>s :VtrSendLinesToRunner<cr>
 
 " Paste from system clipboard
-nmap qp "+p
+nmap <leader>p "+p
 " Yank to system clipboard
-nmap qy "+y
+nmap <leader>y "+y
 
 " Toggle fold under cursos
 nnoremap zx za
@@ -462,7 +454,7 @@ nnoremap , ;
 nnoremap ; ,
 nnoremap g, g;
 nnoremap g; g,
-nnoremap \ ~
+" nnoremap | ~
 
 " Zoom / Restore window
 function! s:ZoomToggle() abort
@@ -482,18 +474,18 @@ command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <C-w>z :ZoomToggle<CR>
 
 " Show marks sidebar
-nnoremap <silent> qm :SignatureToggle<CR>
+nnoremap <silent> <leader>m :SignatureToggle<CR>
 
-" Map TAB to show list of matches for word autocompletion, when in insert mode
-inoremap <TAB> <C-n>
+" " Map TAB to show list of matches for word autocompletion, when in insert mode
+" inoremap <TAB> <C-n>
 
 " Quick mappings for 'buffer next' and 'buffer before'
 nnoremap bn :bn<CR>
 nnoremap bb :bp<CR>
 cnoreabbrev <expr> bb 'bp'
 
-" Toggle gitgutter with gt
-nnoremap <silent> gt :GitGutterBufferToggle<CR>
+" Toggle gitgutter side column 
+nnoremap <silent> <leader>g :GitGutterBufferToggle<CR>
 
 " Add gitbranch in lightline
 " Default is:
