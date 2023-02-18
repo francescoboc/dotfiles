@@ -32,6 +32,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'itchyny/vim-gitbranch'
 Plugin 'ervandew/supertab'
+Plugin 'bounceme/poppy.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -139,6 +140,9 @@ set updatetime=250
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg=bg
 highlight SignColumn ctermbg=bg
+
+" Activate poppy (parenthesis highlighting) automatically when moving cursor
+au! cursormoved * call PoppyInit()
 
 "------------------------------------------------------------
 " Must have options 
@@ -454,7 +458,7 @@ nnoremap , ;
 nnoremap ; ,
 nnoremap g, g;
 nnoremap g; g,
-" nnoremap | ~
+nnoremap \| ~
 
 " Zoom / Restore window
 function! s:ZoomToggle() abort
