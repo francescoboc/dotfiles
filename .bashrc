@@ -141,7 +141,7 @@ fi
 # set the display variable so that it connects with the x11 server in win
 export DISPLAY=localhost:0.0
 
-# shorter aliases for python, vim and tmux
+# shorter aliases for frequent commands
 alias vi='vim'
 alias py='python'
 alias run='python'
