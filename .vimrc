@@ -144,6 +144,9 @@ highlight SignColumn ctermbg=bg
 " Activate poppy (parenthesis highlighting) automatically when moving cursor
 au! cursormoved * call PoppyInit()
 
+" " Scroll down the list of tab results instead of up (supertab default)
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+
 "------------------------------------------------------------
 " Must have options 
 "
