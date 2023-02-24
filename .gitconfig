@@ -1,0 +1,9 @@
+[user]
+	email = francescoboc@gmail.com
+	name = francescoboc
+[credential]
+        helper = store
+[log]
+        date = relative
+[format]
+        pretty = %C(brightyellow)%h >%C(auto)%d %s %C(brightcyan)(%cd) 
