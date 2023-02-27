@@ -283,7 +283,7 @@ set splitbelow splitright
 " au CursorHold * :checktime
 
 " Turning this on will make the file automatically refresh if it has changed
-" set autoread
+set autoread
 
 " Automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
