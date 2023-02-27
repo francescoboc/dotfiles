@@ -6,4 +6,4 @@
 [log]
         date = relative
 [format]
-        pretty = %C(brightyellow)%h >%C(auto)%d %s %C(brightcyan)(%cd) 
+        pretty = %C(yellow)%h >%C(auto)%d %s %C(cyan)(%cd) 
