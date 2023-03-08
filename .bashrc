@@ -160,10 +160,13 @@ alias cpwd="pwd | tr -d '\n' | xclip -selection c && echo 'pwd copied to clipboa
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # open the current path in the file explorer
-alias exp="xdg-open . 2>/dev/null"
+# alias exp='xdg-open . 2>/dev/null'
+alias exp='explorer.exe .'
 
 # reload bashrc
 alias reload="source ~/.bashrc && echo '.bashrc reloaded'"
+
+alias ranger='source ranger'
 
 # # open a new instance of chrome so it can be correctly sent via ssh X forwarding
 # alias chrome-ssh="google-chrome --user-data-dir=/tmp"
