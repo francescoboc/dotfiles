@@ -166,7 +166,20 @@ alias exp='explorer.exe .'
 # reload bashrc
 alias reload="source ~/.bashrc && echo '.bashrc reloaded'"
 
-alias ranger='source ranger'
+# this function lets you quit ranger normally with q, but changes dir to last location if you quit with Q
+# https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
+function ranger {
+    local IFS=$'\t\n'
+    local tempfile="$(mktemp -t tmp.XXXXXX)"
+    local ranger_cmd=(
+        command ranger --cmd="map Q chain shell echo %d > "$tempfile"; quitall"
+    )
+    ${ranger_cmd[@]} "$@"
+    if [[ -f "$tempfile" ]] && [[ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]]; then
+        cd -- "$(cat "$tempfile")" || return
+    fi
+    command rm -f -- "$tempfile" 2>/dev/null
+}
 
 # # open a new instance of chrome so it can be correctly sent via ssh X forwarding
 # alias chrome-ssh="google-chrome --user-data-dir=/tmp"
