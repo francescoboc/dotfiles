@@ -486,10 +486,10 @@ nnoremap <silent> <leader>m :SignatureToggle<CR>
 " " Map TAB to show list of matches for word autocompletion, when in insert mode
 " inoremap <TAB> <C-n>
 
-" Quick mappings for 'buffer next' and 'buffer before'
-nnoremap bn :bn<CR>
-nnoremap bb :bp<CR>
-cnoreabbrev <expr> bb 'bp'
+" " Quick mappings for 'buffer next' and 'buffer before'
+" nnoremap bn :bn<CR>
+" nnoremap bb :bp<CR>
+" cnoreabbrev <expr> bb 'bp'
 
 " Toggle gitgutter side column 
 nnoremap <silent> <leader>g :GitGutterBufferToggle<CR>
