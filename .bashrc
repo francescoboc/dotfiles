@@ -192,18 +192,30 @@ function ranger {
 # connect to ilm fixe
 alias fixe='ssh -X ilmfixe'
 
-# sync current folder from fixe
-alias sync='sync_from_fixe'
-sync_from_fixe() {
-	read -r -p "Are you sure you want to sync $PWD? [y/N] " response
+alias sync='sync_from_cluster'
+sync_from_cluster() {
+	read -r -p "are you sure you want to sync results from cluster? [y/N] " response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 	then
-		rsync --progress -havze ssh ilmfixe:$PWD/ $PWD
-		echo 'Sync completed'
+		rsync -rhav cluster:olfactory_research/results/ /home/fboccardo/Documents/Postdoc/olfactory_research/results/ 2> /dev/null
+		echo 'sync completed'
 	else
-		echo 'Sync cancelled'
+		echo 'sync cancelled'
 	fi
 }
+
+# # sync current folder from fixe
+# alias sync='sync_from_fixe'
+# sync_from_fixe() {
+# 	read -r -p "Are you sure you want to sync $PWD? [y/N] " response
+# 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+# 	then
+# 		rsync --progress -havze ssh ilmfixe:$PWD/ $PWD
+# 		echo 'Sync completed'
+# 	else
+# 		echo 'Sync cancelled'
+# 	fi
+# }
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
