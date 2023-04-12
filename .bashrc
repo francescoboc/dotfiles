@@ -37,8 +37,11 @@ export PROMPT_DIRTRIM=3
 
 # to fix xdg warnings when running GUI applications with Qt5 backend
 export XDG_RUNTIME_DIR='/tmp/runtime-fboccardo'
-export RUNLEVEL=3
+# export RUNLEVEL=3
 export LIBGL_ALWAYS_INDIRECT=1 
+
+# set this factor accordingly to system display size
+export QT_SCALE_FACTOR=1.25
 
 # append to the history file, don't overwrite it
 shopt -s histappend
