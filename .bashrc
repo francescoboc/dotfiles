@@ -12,8 +12,8 @@
 #     export TERM=xterm-256color
 # fi
 
-# little welcome message when you startup the terminal
-fortune | cowsay && echo ''
+# # little welcome message when you startup the terminal
+# fortune | cowsay && echo ''
 
 # disable start/stop signals to be sent with C-s and C-q to the terminal
 # so we can remap them to other things
@@ -138,8 +138,8 @@ fi
 # alias disp-reset='export DISPLAY=:0.0'
 # alias disp-ssh='export DISPLAY=localhost:10.0'
 
-# set the display variable so that it connects with the x11 server in win
-export DISPLAY=localhost:0.0
+# # set the display variable so that it connects with the x11 server in win
+# export DISPLAY=localhost:0.0
 
 # shorter aliases for frequent commands
 alias vi='vim'
