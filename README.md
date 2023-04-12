@@ -32,6 +32,11 @@ Repo to store configuration files (AKA *dotfiles*) of:
         (sudo apt install xzdec)
         tlmgr option repository ftp://tug.org/historic/systems/texlive/2021/tlnet-final
         tlmgr install <package>
+        
+- Qt5 dependencies (used by matplotlib):
+   
+        sudo apt install libgl1
+        sudo apt install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
 
 # WSL-specific options: 
 - To enable changing file owners & permissions, edit (or create) `/etc/wsl.conf` and insert the following lines:
@@ -48,12 +53,3 @@ Repo to store configuration files (AKA *dotfiles*) of:
 
         touch .Xauthority
         xauth add :0 . `mcookie`
-    
-- To use Qt5 as matplotlib backend, edit (or create) `~/.config/matplotlib/matplotlibrc` and insert the following line:
-
-        backend : qtagg   # use pyqt with antigrain (agg) rendering
-
-    then, install Qt5 dependencies:
-   
-        sudo apt install libgl1
-        sudo apt install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
