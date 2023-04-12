@@ -2,7 +2,7 @@
 	email = francescoboc@gmail.com
 	name = francescoboc
 [credential]
-        helper = store
+	helper = store
 [log]
         date = relative
 [format]
