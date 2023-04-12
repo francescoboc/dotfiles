@@ -1,1 +1,5 @@
-backend : qtagg   # use pyqt with antigrain (agg) rendering
+# use pyqt with antigrain (agg) rendering
+backend : qtagg   
+
+# change dpi of figure (better for HD screen)
+plt.matplotlib.rcParams['figure.dpi'] = 75 
