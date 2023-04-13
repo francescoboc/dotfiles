@@ -19,10 +19,14 @@ Repo to store configuration files (AKA *dotfiles*) of:
     dotfiles config --local status.showUntrackedFiles no
 
 # Recommended packages:
-- Vim with clipboard support:
+- Vim with clipboard support + Vundle plugin manager:
 
         sudo apt install vim-gtk3
         git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+- Tmux plugin manager:
+
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
         
 - Latex (to be used in matplotlib):
 
