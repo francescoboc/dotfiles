@@ -35,12 +35,12 @@ HISTCONTROL=ignoreboth
 # trim the length of the pwd
 export PROMPT_DIRTRIM=3
 
-# to fix xdg warnings when running GUI applications with Qt5 backend
+# to fix xdg warnings when running GUI applications with qt backend
 export XDG_RUNTIME_DIR='/tmp/runtime-fboccardo'
 # export RUNLEVEL=3
 export LIBGL_ALWAYS_INDIRECT=1 
 
-# set this factor accordingly to system display size
+# factor to scale qt GUI applications (set it accordingly to system display size)
 export QT_SCALE_FACTOR=1.25
 
 # append to the history file, don't overwrite it
@@ -159,12 +159,12 @@ alias mv="mv -i"
 # copy the PWD to the Clipboard (requires xclip)
 alias cpwd="pwd | tr -d '\n' | xclip -selection c && echo 'pwd copied to clipboard'"
 
-# alias to use instead of the regular git to interact with our configuration repository (created with: git init --bare $HOME/.cfg )
+# alias to use instead of the regular git to interact with our configuration repository 
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# open the current path in the file explorer
-# alias exp='xdg-open . 2>/dev/null'
-alias exp='explorer.exe .'
+# # open the current path in the file explorer (not needed with WSL2, just ose 'open .')
+# # alias exp='xdg-open . 2>/dev/null'
+# alias exp='explorer.exe .'
 
 # reload bashrc
 alias reload="source ~/.bashrc && echo '.bashrc reloaded'"
@@ -183,9 +183,6 @@ function ranger {
     fi
     command rm -f -- "$tempfile" 2>/dev/null
 }
-
-# # open a new instance of chrome so it can be correctly sent via ssh X forwarding
-# alias chrome-ssh="google-chrome --user-data-dir=/tmp"
 
 # # connect via ssh to ilm machine and cd to same directory
 # function ilm() {
