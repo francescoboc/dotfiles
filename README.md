@@ -53,3 +53,12 @@ Repo to store configuration files (AKA *dotfiles*) of:
 
         touch .Xauthority
         xauth add :0 . `mcookie`
+
+- Install additional WSL utilities:
+
+        sudo apt install wslu
+
+# SSH login without password:
+    
+    ssh-keygen
+    ssh-copy-id -i ~/.ssh/id_rsa.pub <remote-host>
