@@ -197,7 +197,7 @@ sync_from_cluster() {
 	read -r -p "are you sure you want to sync results from cluster? [y/N] " response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 	then
-		rsync -rhav cluster:olfactory_research/results/ /home/fboccardo/Documents/Postdoc/olfactory_research/results/ 2> /dev/null
+		rsync -rhav cluster:olfactory_research/results/ /home/fboccardo/olfactory_research/results/ 2> /dev/null
 		echo 'sync completed'
 	else
 		echo 'sync cancelled'
