@@ -141,7 +141,7 @@ fi
 # alias disp-reset='export DISPLAY=:0.0'
 # alias disp-ssh='export DISPLAY=localhost:10.0'
 
-# # set the display variable so that it connects with the x11 server in win
+# set the display variable so that it connects with the x11 server in win (not needed with WSL2)
 # export DISPLAY=localhost:0.0
 
 # shorter aliases for frequent commands
@@ -150,6 +150,7 @@ alias py='python'
 alias run='python'
 alias ipy='ipython --no-autoindent'
 alias ta='tmux a'
+alias rgr='ranger'
 
 # set the remove and move commands to be interactive (prompt to remove or overwrite)
 # it can be overridden by using rm -f and mv -f
@@ -182,6 +183,11 @@ function ranger {
         cd -- "$(cat "$tempfile")" || return
     fi
     command rm -f -- "$tempfile" 2>/dev/null
+}
+
+# function to check weather
+function weather() {
+    curl wttr.in/$1
 }
 
 # # connect via ssh to ilm machine and cd to same directory
