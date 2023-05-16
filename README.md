@@ -8,6 +8,7 @@ Repo to store configuration files (AKA *dotfiles*) of:
 - Ssh (`.ssh/config`)
 - Anaconda (`.condarc`)
 - Git (`.gitconfig`)
+- IPython (`.ipython/profile_default/ipython_config.py`)
 <!-- - Matplotlib (`.config/matplotlib/matplotlibrc`) -->
    
 # Clone the dotfiles on new system:
