@@ -7,3 +7,5 @@
         date = relative
 [format]
         pretty = %C(yellow)%h >%C(auto)%d %s %C(cyan)(%cd) 
+[core]
+	excludesfile = /home/fboccardo/.gitignore
