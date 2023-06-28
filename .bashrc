@@ -196,7 +196,9 @@ function weather() {
 # }
 
 # connect to ilm fixe
-alias fixe='ssh -X ilmfixe'
+alias sshfixe='ssh -X ilmfixe'
+
+alias sshcluster='ssh.exe boccardo@10.187.172.7'
 
 alias sync='sync_from_cluster'
 sync_from_cluster() {
