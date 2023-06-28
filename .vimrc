@@ -303,6 +303,9 @@ autocmd BufReadPost *
   \ |   exe "normal! g`\""
   \ | endif
 
+" set the clipboard variable to automatically interface with the system's clipboard (+)
+set clipboard=unnamedplus
+
 "------------------------------------------------------------
 " Indentation options 
 "
@@ -433,10 +436,10 @@ let g:vtr_filetype_runner_overrides = {
 nnoremap <leader>s :VtrSendLinesToRunner<cr>
 vnoremap <leader>s :VtrSendLinesToRunner<cr>
 
-" Paste from system clipboard
-nmap <leader>p "+p
-" Yank to system clipboard
-nmap <leader>y "+y
+" " Paste from system clipboard (not needed with the clipboard variable set!)
+" nmap <leader>p "+p
+" " Yank to system clipboard
+" nmap <leader>y "+y
 
 " Toggle fold under cursos
 nnoremap zx za
@@ -493,6 +496,8 @@ nnoremap <silent> <leader>m :SignatureToggle<CR>
 
 " Toggle gitgutter side column 
 nnoremap <silent> <leader>g :GitGutterBufferToggle<CR>
+
+nnoremap <F12> :%s/\r//
 
 " Add gitbranch in lightline
 " Default is:
