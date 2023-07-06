@@ -70,7 +70,7 @@ Repo to store configuration files (AKA *dotfiles*) of:
 
 # Pygraphviz: 
 - Install expat library (`sudo apt install libexpat-dev`)
-- Compile and install graphviz from source (`https://graphviz.org/download/source/`)
-- Install pygraphviz via `pip`, linking graphviz installation folder (`https://pygraphviz.github.io/documentation/stable/install.html`):
+- Compile and install graphviz from source (https://graphviz.org/download/source/)
+- Install pygraphviz via `pip`, linking graphviz installation folder (https://pygraphviz.github.io/documentation/stable/install.html):
   
       pip install --global-option=build_ext --global-option="-L/usr/local/lib/" --global-option="-R/usr/local/lib/" pygraphviz
