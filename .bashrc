@@ -198,14 +198,15 @@ function weather() {
 # connect to ilm fixe
 alias sshfixe='ssh -X ilmfixe'
 
+# connect to cluster using scp.exe (linux scp sometimes crashes)
 alias sshcluster='ssh.exe boccardo@10.187.172.7'
 
-alias sync='sync_from_cluster'
-sync_from_cluster() {
+# alias sync='sync_olfactory'
+sync_olfactory() {
 	read -r -p "are you sure you want to sync results from cluster? [y/N] " response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
 	then
-		# rsync -rhav cluster:olfactory_research/results/ /home/fboccardo/olfactory_research/results/ 2> /dev/null
+		# rsync -havze cluster:olfactory_research/results/ /home/fboccardo/olfactory_research/results 2> /dev/null
                 scp.exe -r boccardo@cluster:olfactory_research/results/* /home/fboccardo/olfactory_research/results/ 
 		echo 'sync completed'
 	else
@@ -213,18 +214,19 @@ sync_from_cluster() {
 	fi
 }
 
-# # sync current folder from fixe
-# alias sync='sync_from_fixe'
-# sync_from_fixe() {
-# 	read -r -p "Are you sure you want to sync $PWD? [y/N] " response
-# 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
-# 	then
-# 		rsync --progress -havze ssh ilmfixe:$PWD/ $PWD
-# 		echo 'Sync completed'
-# 	else
-# 		echo 'Sync cancelled'
-# 	fi
-# }
+# alias sync='sync_kmc'
+sync_kmc() {
+	read -r -p "Are you sure you want to sync results from FIXE? [y/N] " response
+	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
+	then
+                # # sync current folder
+		# rsync --progress -havze ssh cluster:$PWD/ $PWD
+                rsync --progress -havze ssh cluster:kmc_edgediff/save_data/ /home/fboccardo/kmc_edgediff/save_data
+		echo 'Sync completed'
+	else
+		echo 'Sync cancelled'
+	fi
+}
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
