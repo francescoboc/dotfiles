@@ -124,6 +124,9 @@ let g:VtrStripLeadingWhitespace = 0
 let g:VtrClearEmptyLines = 0
 let g:VtrAppendNewline = 1
 
+" Disable clearing the ipython terminal before sending the command
+let g:VtrClearBeforeSend = 0
+
 " Disable tmux navigator when zooming the Vim pane
 let g:tmux_navigator_disable_when_zoomed = 1
 
@@ -139,7 +142,9 @@ set updatetime=250
 " Nicer colors for gitgutter column
 let g:gitgutter_override_sign_column_highlight = 1
 highlight SignColumn guibg=bg
-highlight SignColumn ctermbg=bg
+if !has("gui_running")
+    highlight SignColumn ctermbg=bg
+endif
 
 " Activate poppy (parenthesis highlighting) automatically when moving cursor
 au! cursormoved * call PoppyInit()
@@ -421,12 +426,14 @@ nnoremap <silent> ù :UndotreeToggle<cr>
 
 " Open an ipython runner panel in tmux
 nnoremap <leader>o :VtrOpenRunner {'orientation': 'h', 'percentage': 25, 'cmd': 'ipy'}<cr>
-" Kill the existing runner panel
-nnoremap <leader>k :VtrKillRunner<cr>
+" Kill the existing runner panel (dangerous!)
+" nnoremap <leader>k :VtrKillRunner<cr>
 " Attach runner to existing panel
 nnoremap <leader>a :VtrAttachToPane<cr>
 " Clear runner
-nnoremap <leader>c :VtrClearRunner<cr>
+" nnoremap <leader>c :VtrClearRunner<cr>
+" Run custom command (more useful than clear terminal)
+nnoremap <leader>c :VtrSendCommand plt.clf()<cr>
 " Run current python script
 nnoremap <leader>r :VtrSendFile<cr>
 let g:vtr_filetype_runner_overrides = {
