@@ -201,7 +201,10 @@ alias sshfixe='ssh -X ilmfixe'
 # connect to cluster using scp.exe (linux scp sometimes crashes)
 alias sshcluster='ssh.exe boccardo@10.187.172.7'
 
-# alias sync='sync_olfactory'
+# mount google drive from win to wsl
+alias mountgdrive='sudo mount -t drvfs G: /mnt/g'
+
+alias sync='sync_olfactory'
 sync_olfactory() {
 	read -r -p "are you sure you want to sync results from cluster? [y/N] " response
 	if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
