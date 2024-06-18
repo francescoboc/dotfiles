@@ -295,10 +295,14 @@ autocmd VimResized * :wincmd =
 
 " Folds are defined by indentation
 set foldmethod=indent
+
 " Do not fold when opening a file
 set nofoldenable
-" Only fold 1 level of indentation (i.e. fold classes, not methods)
-set foldnestmax=1
+
+" Select level of indentation:
+" level 1 = fold only classes, not methods
+" level 2 = fold methods
+set foldnestmax=2
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid, when inside an event handler
