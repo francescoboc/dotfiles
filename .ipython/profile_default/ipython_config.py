@@ -10,6 +10,17 @@ try:
 except Exception:
     print("Error patching background color for tracebacks, they'll be the ugly default instead")
 
+# automatic reload modules before executing the script
+# https://stackoverflow.com/questions/5364050/reloading-submodules-in-ipython
+c.InteractiveShellApp.extensions = ['autoreload']     
+line1 = '%autoreload 2'
+
+# mark specific modules to not be autoreloaded
+line2 = '%aimport -matplotlib, -matplotlib.pyplot, -numpy, -scipy, -pandas, -random, -os, -sys, -h5py, -tqdm, -pygame'
+
+# exeute configuration lines
+c.InteractiveShellApp.exec_lines = [line1, line2]
+
 #------------------------------------------------------------------------------
 # InteractiveShellApp(Configurable) configuration
 #------------------------------------------------------------------------------
