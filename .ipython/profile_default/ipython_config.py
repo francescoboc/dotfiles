@@ -16,7 +16,7 @@ c.InteractiveShellApp.extensions = ['autoreload']
 line1 = '%autoreload 2'
 
 # mark specific modules to not be autoreloaded
-line2 = '%aimport -matplotlib, -matplotlib.pyplot, -numpy, -scipy, -pandas, -random, -os, -sys, -h5py, -tqdm, -pygame'
+line2 = '%aimport -matplotlib, -matplotlib.pyplot, -numpy, -scipy, -pandas, -random, -os, -sys, -h5py, -tqdm, -pygame, -multiprocessing, -platform'
 
 # exeute configuration lines
 c.InteractiveShellApp.exec_lines = [line1, line2]
