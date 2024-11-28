@@ -151,6 +151,7 @@ alias run='python'
 alias ipy='ipython --no-autoindent'
 alias ta='tmux a'
 alias rgr='ranger'
+alias cl='clear'
 
 # set the remove and move commands to be interactive (prompt to remove or overwrite)
 # it can be overridden by using rm -f and mv -f
