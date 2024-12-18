@@ -171,6 +171,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 # reload bashrc
 alias reload="source ~/.bashrc && echo '.bashrc reloaded'"
 
+# run script to convert supernote notes
+alias convertnotes="~/convert-notes.sh"
+
 # this function lets you quit ranger normally with q, but changes dir to last location if you quit with Q
 # https://github.com/ranger/ranger/wiki/Integration-with-other-programs#changing-directories
 function ranger {
